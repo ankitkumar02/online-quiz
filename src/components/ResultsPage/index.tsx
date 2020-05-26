@@ -3,6 +3,7 @@ import './ResultsPage.scss';
 import LinearProgressBar from '../common/LinearProgressBar';
 import Button from '../common/Button';
 import { Link } from 'react-router-dom';
+import { millisToMinutesAndSeconds } from '../../utils';
 
 interface ResultsPageProps {
   answers: object;
@@ -20,18 +21,11 @@ const checkQuizResults = results => {
   return count;
 };
 
-const millisToMinutesAndSeconds = millis => {
-  var minutes = Math.floor(millis / 60000);
-  var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return `${minutes} min(s) ${seconds} secs`;
-};
-
 const ResultsPage: React.FC<ResultsPageProps> = ({
   answers,
   questionsCount,
   startTime
 }) => {
-  console.log('Answers:', answers);
   const correct_answers = checkQuizResults(answers);
 
   return (

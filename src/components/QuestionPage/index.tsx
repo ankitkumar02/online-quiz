@@ -3,6 +3,7 @@ import './Question.scss';
 import Button from '../common/Button';
 import ResultsPage from '../ResultsPage';
 import Stopwatch from '../common/Stopwatch';
+import { decodeHtml } from '../../utils';
 
 interface QuestionProps {
   questionsList: any;
@@ -23,10 +24,7 @@ interface QuestionState {
   startTime: number;
 }
 
-class QuestionsListContainer extends React.Component<
-  QuestionProps,
-  QuestionState
-> {
+class QuestionPage extends React.Component<QuestionProps, QuestionState> {
   state: QuestionState;
 
   constructor(props: QuestionProps) {
@@ -47,19 +45,17 @@ class QuestionsListContainer extends React.Component<
     this.state.questionNo + 1 === this.props.questionsList.length;
 
   goToNextQuestion = currentQuestionNo => {
-    this.setState({
-      questionNo: this.props.questionsList[currentQuestionNo + 1].questionNo,
-      questionTitle: this.props.questionsList[currentQuestionNo + 1].question,
-      options: this.props.questionsList[currentQuestionNo + 1].options
-    });
+    const { questionNo, question, options } = this.props.questionsList[
+      currentQuestionNo + 1
+    ];
+    this.setState({ questionNo, questionTitle: question, options });
   };
 
   goToPreviousQuestion = currentQuestionNo => {
-    this.setState({
-      questionNo: this.props.questionsList[currentQuestionNo - 1].questionNo,
-      questionTitle: this.props.questionsList[currentQuestionNo - 1].question,
-      options: this.props.questionsList[currentQuestionNo - 1].options
-    });
+    const { questionNo, question, options } = this.props.questionsList[
+      currentQuestionNo - 1
+    ];
+    this.setState({ questionNo, questionTitle: question, options });
   };
 
   updateUserAnswer = (
@@ -110,7 +106,9 @@ class QuestionsListContainer extends React.Component<
             this.props.questionsList.length
           }`}
         </h1>
-        <h3 className="question-content">{this.state.questionTitle}</h3>
+        <h3 className="question-content">
+          {decodeHtml(this.state.questionTitle)}
+        </h3>
         <div className="options-list">
           {this.state.options.map(option => {
             return (
@@ -130,7 +128,7 @@ class QuestionsListContainer extends React.Component<
                   )
                 }
               >
-                {option}
+                {decodeHtml(option)}
               </div>
             );
           })}
@@ -169,4 +167,4 @@ class QuestionsListContainer extends React.Component<
   }
 }
 
-export default QuestionsListContainer;
+export default QuestionPage;

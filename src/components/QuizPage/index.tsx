@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import QuestionsListContainer from '../QuestionsListContainer';
+import QuestionPage from '../QuestionPage';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './QuizPage.scss';
 import Button from '../common/Button';
@@ -17,7 +17,6 @@ class QuizPage extends React.Component<QuizPageProps, {}> {
   render() {
     return (
       <div className="quiz-page-container">
-        {/* <h2>Welcome to QuizPage</h2> */}
         {this.props.questionsList.fetching && (
           <h3 className="loading-quiz-container">
             Preparing Your Quiz.. Please wait..
@@ -26,9 +25,7 @@ class QuizPage extends React.Component<QuizPageProps, {}> {
 
         {this.props.questionsList.data && (
           <div className="questions-container">
-            <QuestionsListContainer
-              questionsList={this.props.questionsList.data}
-            />
+            <QuestionPage questionsList={this.props.questionsList.data} />
           </div>
         )}
 
@@ -50,9 +47,5 @@ class QuizPage extends React.Component<QuizPageProps, {}> {
 const mapStateToProps = store => ({
   questionsList: store.question.questionsList
 });
-
-// const mapDispatchToProps = dispatch => ({
-//     updateAnswer: (answer) => dispatch(updateAnswer(answer))
-// })
 
 export default connect(mapStateToProps, null)(withRouter(QuizPage));
