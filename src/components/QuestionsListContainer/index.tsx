@@ -145,7 +145,7 @@ class QuestionsListContainer extends React.Component<
           <div className="right-aligned-buttons">
             {this.isLastQuestion() && (
               <Button
-                buttonText="SUBMIT QUIZ"
+                buttonText="SUBMIT"
                 primary
                 onClick={() => this.showQuizResults()}
               />

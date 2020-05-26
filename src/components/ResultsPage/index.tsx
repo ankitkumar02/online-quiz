@@ -54,7 +54,7 @@ const ResultsPage: React.FC<ResultsPageProps> = ({
           </div>
           <LinearProgressBar
             percent={correct_answers / questionsCount}
-            width="500"
+            width="300"
             fillColor="#90f789"
             backgroundColor="red"
           />
