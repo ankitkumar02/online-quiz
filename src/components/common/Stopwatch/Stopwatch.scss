@@ -1,0 +1,17 @@
+@media (max-width: 900px) {
+  .Stopwatch {
+    margin-bottom: 40px;
+  }
+}
+
+.stopwatch {
+  .stopwatch-header-container {
+    display: flex;
+    align-items: center;
+    .stopwatch-display {
+      padding-left: 10px;
+    }
+    .stopwatch-text {
+    }
+  }
+}

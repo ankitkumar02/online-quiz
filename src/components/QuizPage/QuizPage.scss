@@ -1,0 +1,13 @@
+.quiz-page-container {
+  padding: 40px;
+  .loading-quiz-container {
+    text-align: center;
+  }
+  .loading-error-container {
+    text-align: center;
+    color: red;
+    .primary-button {
+      width: 290px;
+    }
+  }
+}
