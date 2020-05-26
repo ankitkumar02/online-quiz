@@ -78,6 +78,7 @@ class StartPage extends React.Component<StartPageProps, StartPageState> {
             options={category_options}
             defaultValue={category_options[1]}
             onChange={this.handleCategorySelection}
+            isSearchable={false}
           />
         </div>
         <div className="select-difficulty-container">
@@ -86,6 +87,7 @@ class StartPage extends React.Component<StartPageProps, StartPageState> {
             options={difficulty_options}
             defaultValue={difficulty_options[1]}
             onChange={this.handleDifficultySelection}
+            isSearchable={false}
           />
         </div>
 
