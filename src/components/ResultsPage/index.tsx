@@ -55,6 +55,25 @@ const ResultsPage: React.FC<ResultsPageProps> = ({
         </div>
       </h1>
       <h2>Time Taken: {millisToMinutesAndSeconds(Date.now() - startTime)}</h2>
+
+      <div className="fb-share-button">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURI(
+            'https://master.dwqohzituu3t7.amplifyapp.com/'
+          )}`}
+        >
+          <img
+            className="fb-image"
+            src="https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/ps3LEjFUMch.png"
+            alt="fb-icon"
+            width="16"
+            height="16"
+          ></img>
+          <span>Share</span>
+        </a>
+      </div>
       <Link to="/">
         <Button buttonText="RESTART QUIZ" primary onClick={() => {}} />
       </Link>
